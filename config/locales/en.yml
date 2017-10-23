@@ -25,7 +25,7 @@ en:
       within_reach_title: Always within reach
     find_another_instance: Find another instance
     generic_description: "%{domain} is one server in the network"
-    hosted_on: Mastodon hosted on %{domain}
+    hosted_on: A Mastodon instance
     learn_more: Learn more
     other_instances: Instance list
     source_code: Source code
@@ -588,7 +588,9 @@ en:
       <p>Originally adapted from the <a href="https://github.com/discourse/discourse">Discourse privacy policy</a>.</p>
     title: "%{instance} Terms of Service and Privacy Policy"
   themes:
-    default: Mastodon
+    default: "Scifi"
+    win95: "Windows 95"
+    mastodon: "Mastodon"
   time:
     formats:
       default: "%b %d, %Y, %H:%M"

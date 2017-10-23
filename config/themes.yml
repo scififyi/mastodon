@@ -1,1 +1,3 @@
-default: styles/application.scss
+default: styles/scifi.scss
+win95: styles/win95.scss
+mastodon: styles/application.scss

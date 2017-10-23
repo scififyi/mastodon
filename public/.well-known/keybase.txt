@@ -1,0 +1,70 @@
+==================================================================
+https://keybase.io/cwmartin
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://scifi.fyi
+  * I am cwmartin (https://keybase.io/cwmartin) on keybase.
+  * I have a public key with fingerprint 307A 3C70 EDE3 6DA7 DB31  8878 8180 C030 1E28 F839
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01207bc5c17e1366c35d3fb98276d80a977b62de8eb0d2a25fccd425662d0515cca60a",
+      "fingerprint": "307a3c70ede36da7db3188788180c0301e28f839",
+      "host": "keybase.io",
+      "key_id": "8180c0301e28f839",
+      "kid": "01018c9399c9bea7409ee3a5be8f2740634d1cda6285561fb26d47218d4d4770abc40a",
+      "uid": "0825d9f0b9f444a98da850fd0c9d1a19",
+      "username": "cwmartin"
+    },
+    "service": {
+      "hostname": "scifi.fyi",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1501380907,
+  "expire_in": 157680000,
+  "prev": "539eeb4a44f94892e5ad5fdd9f4320a7964debaa00157e9658243ee9a2a50148",
+  "seqno": 33,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.73
+Comment: https://keybase.io/crypto
+
+yMJXAnicbVJ/aFVlGL5T0zZRh6l/ZIgeygmbl+/nOd93MeYYREi6hJbZxNv362yH
+zXOu5579uNhAYYJCAzcRmYgQlAoxYlFqEmO7/li0JRJaYCYVRSmTLEETBP3O1P/8
+/nn5Hp7neZ/35T2/YHamqmLP7jGwYs3/vGJy/FBnZmtvQ+0uR0a65OR2Oe1mppgO
+bYpJvj3QTs4BEAFPKqqgZyB2XYWpxr7kDHmuZkBwz5Mu0oYZCTQSiPpKaYKoa0FA
+IVVKuEA4dY4fhK0mLsRBmFhbDDyBlQeMNtjVwtMSQ8Y8xiADCmAADWI+w9wK26Ji
+qrDhpCiabBBZzH7yM/Gew3+WG0CmOOZccWmERwA3BgsqDfOR/bmYaKi0cBGj1IW+
+RK4mHoJME1s9IKQiM7k7n9gxRDX3geQ+IURwpgWjwNdAcQ0FTPt2Fk0cih3GslX3
+DhEnQej01jkW7QqUSRebTvKUUVSBH2T9UmCFhThKIhV1WLgtSQrFXCpLSoWU121k
+/qlDXgahtku0ii4TF4ModHLQMlUSpJaQAogZ4MCrc0xPIYhNPkgZ1HMZsC/tY7qs
+JcV2E5IIQnxOGEeGCk19bacjGAHhcZdoI4UAwGoNdylDBBvDBRK2BWFOOtPOMHJy
+GNucojUdJ2gNRdIZG6e3PLZtTqaiKjP3hVnpdWWqKquf3Vz533mP3txZfkteOHDp
+3Dtoqt38tPhILtv3XX4Vnq82fja1/I1jPc2vn2+p//aHn5tHX9n6X+n40cEX+0Yn
+xqc7FjY11tz748xv4Y/+0EV/9NyR5ebquwPj+1v2fvha31ebvti9YfjBnbdr5g8+
+atowOxT/9DQE2TXFs9cPVVVvf/jrxqNdU9fm3bpeOXSrf+XI+6/Wb/mgtmEJKHm/
+7yPxJsgPlA8vXbGs6fu2oQn059dR42k6cnB4c9z2Eg0/vzG55M7agY/H6v+aXN9/
+8r1fMncb0awvb+zJ7v304nDz5N+XKz8avHKlet0nrYMVl/svLE0u3R9puFozPfFy
+9+1FdQMnwc37p86eOLP69HT52jePAbqBQEQ=
+=sMEJ
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/cwmartin
+
+==================================================================
+
