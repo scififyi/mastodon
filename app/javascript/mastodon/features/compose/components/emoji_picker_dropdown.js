@@ -354,6 +354,7 @@ export default class EmojiPickerDropdown extends React.PureComponent {
       <div className='emoji-picker-dropdown' onKeyDown={this.handleKeyDown}>
         <div ref={this.setTargetRef} className='emoji-button' title={title} aria-label={title} aria-expanded={active} role='button' onClick={this.onToggle} onKeyDown={this.onToggle} tabIndex={0}>
           <img
+<<<<<<< Updated upstream
             className={classNames('emojione', { 'pulse-loading': active && loading })}
             alt='🙂'
             src={`${assetHost}/emoji/1f602.svg`}
@@ -370,6 +371,11 @@ export default class EmojiPickerDropdown extends React.PureComponent {
             onSkinTone={onSkinTone}
             skinTone={skinTone}
             frequentlyUsedEmojis={frequentlyUsedEmojis}
+=======
+            className={`emojione ${active && loading ? 'pulse-loading' : ''}`}
+            alt='☄️'
+            alt='🙂' src='/emoji/2604.svg'
+>>>>>>> Stashed changes
           />
         </Overlay>
       </div>
