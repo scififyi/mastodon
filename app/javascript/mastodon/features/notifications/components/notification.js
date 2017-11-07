@@ -97,20 +97,17 @@ export default class Notification extends ImmutablePureComponent {
 
   renderFavourite (notification, link) {
     return (
-<<<<<<< Updated upstream
       <HotKeys handlers={this.getHandlers()}>
         <div className='notification notification-favourite focusable' tabIndex='0'>
           <div className='notification__message'>
             <div className='notification__favourite-icon-wrapper'>
               <i className='fa fa-fw fa-star star-icon' />
             </div>
-=======
       <div className='notification notification-favourite'>
         <div className='notification__message'>
           <div className='notification__favourite-icon-wrapper'>
             <i className='fa fa-fw fa-star star-icon' />
           </div>
->>>>>>> Stashed changes
           <FormattedMessage id='notification.favourite' defaultMessage='{name} energized you transmission' values={{ name: link }} />
         </div>
 
@@ -122,20 +119,17 @@ export default class Notification extends ImmutablePureComponent {
 
   renderReblog (notification, link) {
     return (
-<<<<<<< Updated upstream
       <HotKeys handlers={this.getHandlers()}>
         <div className='notification notification-reblog focusable' tabIndex='0'>
           <div className='notification__message'>
             <div className='notification__favourite-icon-wrapper'>
               <i className='fa fa-fw fa-retweet' />
             </div>
-=======
       <div className='notification notification-reblog'>
         <div className='notification__message'>
           <div className='notification__favourite-icon-wrapper'>
             <i className='fa fa-fw fa-retweet' />
           </div>
->>>>>>> Stashed changes
           <FormattedMessage id='notification.reblog' defaultMessage='{name} teleported your transmission' values={{ name: link }} />
         </div>
 

@@ -12,11 +12,7 @@ defaults: &defaults
   default_sensitive: false
   unfollow_modal: true
   closed_registrations_message: 'Closed for now -- check in with @cwm@scifi.fyi'
-<<<<<<< Updated upstream
   boost_modal: true
-=======
-  boost_modal: false
->>>>>>> Stashed changes
   delete_modal: true
   auto_play_gif: false
   reduce_motion: false
@@ -40,11 +36,7 @@ defaults: &defaults
     - root
     - webmaster
     - administrator
-<<<<<<< Updated upstream
   bootstrap_timeline_accounts: ''
-=======
-    - chrismartin
->>>>>>> Stashed changes
 
 development:
   <<: *defaults
