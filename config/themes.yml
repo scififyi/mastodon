@@ -1,3 +1,4 @@
 default: styles/scifi.scss
+scifi-autumn: styles/scifi-autumn.scss
 win95: styles/win95.scss
 mastodon: styles/application.scss

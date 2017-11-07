@@ -589,6 +589,7 @@ en:
     title: "%{instance} Terms of Service and Privacy Policy"
   themes:
     default: "Scifi"
+    scifi-autumn: "Scifi autumn"
     win95: "Windows 95"
     mastodon: "Mastodon"
   time:
