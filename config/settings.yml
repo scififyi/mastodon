@@ -1,6 +1,5 @@
 # config/app.yml for rails-settings-cached
 defaults: &defaults
-<<<<<<< HEAD
   site_title: Scifi
   site_description: ''
   site_extended_description: ''
