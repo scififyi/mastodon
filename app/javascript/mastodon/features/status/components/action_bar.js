@@ -4,6 +4,7 @@ import IconButton from '../../../components/icon_button';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import DropdownMenuContainer from '../../../containers/dropdown_menu_container';
 import { defineMessages, injectIntl } from 'react-intl';
+import { me } from '../../../initial_state';
 
 const messages = defineMessages({
   delete: { id: 'status.delete', defaultMessage: 'Delete' },
@@ -36,7 +37,6 @@ export default class ActionBar extends React.PureComponent {
     onReport: PropTypes.func,
     onPin: PropTypes.func,
     onEmbed: PropTypes.func,
-    me: PropTypes.string.isRequired,
     intl: PropTypes.object.isRequired,
   };
 
@@ -80,7 +80,7 @@ export default class ActionBar extends React.PureComponent {
   }
 
   render () {
-    const { status, me, intl } = this.props;
+    const { status, intl } = this.props;
 
     const publicStatus = ['public', 'unlisted'].includes(status.get('visibility'));
 
@@ -106,9 +106,9 @@ export default class ActionBar extends React.PureComponent {
       <div className='detailed-status__button'><IconButton title={intl.formatMessage(messages.share)} icon='share-alt' onClick={this.handleShare} /></div>
     );
 
-    let reblogIcon = 'space-shuttle';
-    if (status.get('visibility') === 'direct') reblogIcon = 'envelope';
-    else if (status.get('visibility') === 'private') reblogIcon = 'lock';
+    let reblogIcon = 'retweet';
+    //if (status.get('visibility') === 'direct') reblogIcon = 'envelope';
+    // else if (status.get('visibility') === 'private') reblogIcon = 'lock';
 
     let reblog_disabled = (status.get('visibility') === 'direct' || status.get('visibility') === 'private');
 

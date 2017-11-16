@@ -3,13 +3,13 @@
 #
 # Table name: stream_entries
 #
-#  activity_id   :integer
+#  activity_id   :bigint
 #  activity_type :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  hidden        :boolean          default(FALSE), not null
-#  account_id    :integer
-#  id            :integer          not null, primary key
+#  account_id    :bigint
+#  id            :bigint           not null, primary key
 #
 
 class StreamEntry < ApplicationRecord
@@ -27,7 +27,7 @@ class StreamEntry < ApplicationRecord
   scope :recent, -> { reorder(id: :desc) }
   scope :with_includes, -> { includes(:account, status: STATUS_INCLUDES) }
 
-  delegate :target, :title, :content, :thread,
+  delegate :target, :title, :content, :thread, :local_only?,
            to: :status,
            allow_nil: true
 

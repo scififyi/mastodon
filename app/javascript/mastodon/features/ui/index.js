@@ -15,6 +15,7 @@ import { clearHeight } from '../../actions/height_cache';
 import { WrappedSwitch, WrappedRoute } from './util/react_router_helpers';
 import UploadArea from './components/upload_area';
 import ColumnsAreaContainer from './containers/columns_area_container';
+import classNames from 'classnames';
 import {
   Compose,
   Status,
@@ -28,6 +29,7 @@ import {
   Following,
   Reblogs,
   Favourites,
+  DirectTimeline,
   HashtagTimeline,
   Notifications,
   FollowRequests,
@@ -38,14 +40,20 @@ import {
   PinnedStatuses,
 } from './util/async-components';
 import { HotKeys } from 'react-hotkeys';
+import { me } from '../../initial_state';
+import { defineMessages, injectIntl } from 'react-intl';
 
 // Dummy import, to make sure that <Status /> ends up in the application bundle.
 // Without this it ends up in ~8 very commonly used bundles.
-import '../../components/status';
+import '../../../glitch/components/status';
+
+const messages = defineMessages({
+  beforeUnload: { id: 'ui.beforeunload', defaultMessage: 'Your draft will be lost if you leave Mastodon.' },
+});
 
 const mapStateToProps = state => ({
-  me: state.getIn(['meta', 'me']),
   isComposing: state.getIn(['compose', 'is_composing']),
+  hasComposingText: state.getIn(['compose', 'text']) !== '',
 });
 
 const keyMap = {
@@ -66,6 +74,7 @@ const keyMap = {
   goToNotifications: 'g n',
   goToLocal: 'g l',
   goToFederated: 'g t',
+  goToDirect: 'g d',
   goToStart: 'g s',
   goToFavourites: 'g f',
   goToPinned: 'g p',
@@ -75,6 +84,7 @@ const keyMap = {
 };
 
 @connect(mapStateToProps)
+@injectIntl
 @withRouter
 export default class UI extends React.Component {
 
@@ -85,15 +95,31 @@ export default class UI extends React.Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
     children: PropTypes.node,
+    layout: PropTypes.string,
+    isWide: PropTypes.bool,
+    systemFontUi: PropTypes.bool,
+    navbarUnder: PropTypes.bool,
     isComposing: PropTypes.bool,
-    me: PropTypes.string,
+    hasComposingText: PropTypes.bool,
     location: PropTypes.object,
+    intl: PropTypes.object.isRequired,
   };
 
   state = {
     width: window.innerWidth,
     draggingOver: false,
   };
+
+  handleBeforeUnload = (e) => {
+    const { intl, isComposing, hasComposingText } = this.props;
+
+    if (isComposing && hasComposingText) {
+      // Setting returnValue to any string causes confirmation dialog.
+      // Many browsers no longer display this text to users,
+      // but we set user-friendly message for other browsers, e.g. Edge.
+      e.returnValue = intl.formatMessage(messages.beforeUnload);
+    }
+  }
 
   handleResize = debounce(() => {
     // The cached heights are no longer accurate, invalidate
@@ -169,6 +195,7 @@ export default class UI extends React.Component {
   }
 
   componentWillMount () {
+    window.addEventListener('beforeunload', this.handleBeforeUnload, false);
     window.addEventListener('resize', this.handleResize, { passive: true });
     document.addEventListener('dragenter', this.handleDragEnter, false);
     document.addEventListener('dragover', this.handleDragOver, false);
@@ -194,6 +221,7 @@ export default class UI extends React.Component {
     if (nextProps.isComposing !== this.props.isComposing) {
       // Avoid expensive update just to toggle a class
       this.node.classList.toggle('is-composing', nextProps.isComposing);
+      this.node.classList.toggle('navbar-under', nextProps.navbarUnder);
 
       return false;
     }
@@ -210,6 +238,7 @@ export default class UI extends React.Component {
   }
 
   componentWillUnmount () {
+    window.removeEventListener('beforeunload', this.handleBeforeUnload);
     window.removeEventListener('resize', this.handleResize);
     document.removeEventListener('dragenter', this.handleDragEnter);
     document.removeEventListener('dragover', this.handleDragOver);
@@ -292,6 +321,10 @@ export default class UI extends React.Component {
     this.context.router.history.push('/timelines/public');
   }
 
+  handleHotkeyGoToDirect = () => {
+    this.context.router.history.push('/timelines/direct');
+  }
+
   handleHotkeyGoToStart = () => {
     this.context.router.history.push('/getting-started');
   }
@@ -305,7 +338,7 @@ export default class UI extends React.Component {
   }
 
   handleHotkeyGoToProfile = () => {
-    this.context.router.history.push(`/accounts/${this.props.me}`);
+    this.context.router.history.push(`/accounts/${me}`);
   }
 
   handleHotkeyGoToBlocked = () => {
@@ -318,7 +351,24 @@ export default class UI extends React.Component {
 
   render () {
     const { width, draggingOver } = this.state;
-    const { children } = this.props;
+    const { children, layout, isWide, navbarUnder } = this.props;
+
+    const columnsClass = layout => {
+      switch (layout) {
+      case 'single':
+        return 'single-column';
+      case 'multiple':
+        return 'multi-columns';
+      default:
+        return 'auto-columns';
+      }
+    };
+
+    const className = classNames('ui', columnsClass(layout), {
+      'wide': isWide,
+      'system-font': this.props.systemFontUi,
+      'navbar-under': navbarUnder,
+    });
 
     const handlers = {
       new: this.handleHotkeyNew,
@@ -330,6 +380,7 @@ export default class UI extends React.Component {
       goToNotifications: this.handleHotkeyGoToNotifications,
       goToLocal: this.handleHotkeyGoToLocal,
       goToFederated: this.handleHotkeyGoToFederated,
+      goToDirect: this.handleHotkeyGoToDirect,
       goToStart: this.handleHotkeyGoToStart,
       goToFavourites: this.handleHotkeyGoToFavourites,
       goToPinned: this.handleHotkeyGoToPinned,
@@ -340,16 +391,17 @@ export default class UI extends React.Component {
 
     return (
       <HotKeys keyMap={keyMap} handlers={handlers} ref={this.setHotkeysRef}>
-        <div className='ui' ref={this.setRef}>
-          <TabsBar />
+        <div className={className} ref={this.setRef}>
+          {navbarUnder ? null : (<TabsBar />)}
 
-          <ColumnsAreaContainer ref={this.setColumnsAreaRef} singleColumn={isMobile(width)}>
+          <ColumnsAreaContainer ref={this.setColumnsAreaRef} singleColumn={isMobile(width, layout)}>
             <WrappedSwitch>
               <Redirect from='/' to='/getting-started' exact />
               <WrappedRoute path='/getting-started' component={GettingStarted} content={children} />
               <WrappedRoute path='/timelines/home' component={HomeTimeline} content={children} />
               <WrappedRoute path='/timelines/public' exact component={PublicTimeline} content={children} />
               <WrappedRoute path='/timelines/public/local' component={CommunityTimeline} content={children} />
+              <WrappedRoute path='/timelines/direct' component={DirectTimeline} content={children} />
               <WrappedRoute path='/timelines/tag/:id' component={HashtagTimeline} content={children} />
 
               <WrappedRoute path='/notifications' component={Notifications} content={children} />
@@ -375,6 +427,7 @@ export default class UI extends React.Component {
           </ColumnsAreaContainer>
 
           <NotificationsContainer />
+          {navbarUnder ? (<TabsBar />) : null}
           <LoadingBarContainer className='loading-bar' />
           <ModalContainer />
           <UploadArea active={draggingOver} onClose={this.closeUploadModal} />

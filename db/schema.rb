@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171010025614) do
+ActiveRecord::Schema.define(version: 20171114080328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20171010025614) do
     t.string "shared_inbox_url", default: "", null: false
     t.string "followers_url", default: "", null: false
     t.integer "protocol", default: 0, null: false
+    t.boolean "memorial", default: false, null: false
     t.index "(((setweight(to_tsvector('simple'::regconfig, (display_name)::text), 'A'::\"char\") || setweight(to_tsvector('simple'::regconfig, (username)::text), 'B'::\"char\")) || setweight(to_tsvector('simple'::regconfig, (COALESCE(domain, ''::character varying))::text), 'C'::\"char\")))", name: "search_index", using: :gin
     t.index "lower((username)::text), lower((domain)::text)", name: "index_accounts_on_username_and_domain_lower"
     t.index ["uri"], name: "index_accounts_on_uri"
@@ -111,6 +112,7 @@ ActiveRecord::Schema.define(version: 20171010025614) do
     t.boolean "disabled", default: false, null: false
     t.string "uri"
     t.string "image_remote_url"
+    t.boolean "visible_in_picker", default: true, null: false
     t.index ["shortcode", "domain"], name: "index_custom_emojis_on_shortcode_and_domain", unique: true
   end
 
@@ -124,9 +126,10 @@ ActiveRecord::Schema.define(version: 20171010025614) do
   end
 
   create_table "email_domain_blocks", force: :cascade do |t|
-    t.string "domain", null: false
+    t.string "domain", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["domain"], name: "index_email_domain_blocks_on_domain", unique: true
   end
 
   create_table "favourites", force: :cascade do |t|
@@ -144,6 +147,7 @@ ActiveRecord::Schema.define(version: 20171010025614) do
     t.datetime "updated_at", null: false
     t.bigint "account_id", null: false
     t.bigint "target_account_id", null: false
+    t.boolean "show_reblogs", default: true, null: false
     t.index ["account_id", "target_account_id"], name: "index_follow_requests_on_account_id_and_target_account_id", unique: true
   end
 
@@ -152,7 +156,17 @@ ActiveRecord::Schema.define(version: 20171010025614) do
     t.datetime "updated_at", null: false
     t.bigint "account_id", null: false
     t.bigint "target_account_id", null: false
+    t.boolean "show_reblogs", default: true, null: false
     t.index ["account_id", "target_account_id"], name: "index_follows_on_account_id_and_target_account_id", unique: true
+  end
+
+  create_table "glitch_keyword_mutes", force: :cascade do |t|
+    t.bigint "account_id", null: false
+    t.string "keyword", null: false
+    t.boolean "whole_word", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_glitch_keyword_mutes_on_account_id"
   end
 
   create_table "imports", force: :cascade do |t|
@@ -198,8 +212,10 @@ ActiveRecord::Schema.define(version: 20171010025614) do
   create_table "mutes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "hide_notifications", default: true, null: false
     t.bigint "account_id", null: false
     t.bigint "target_account_id", null: false
+    t.boolean "hide_notifications", default: true, null: false
     t.index ["account_id", "target_account_id"], name: "index_mutes_on_account_id_and_target_account_id", unique: true
   end
 
@@ -434,6 +450,8 @@ ActiveRecord::Schema.define(version: 20171010025614) do
     t.string "otp_backup_codes", array: true
     t.string "filtered_languages", default: [], null: false, array: true
     t.bigint "account_id", null: false
+    t.boolean "disabled", default: false, null: false
+    t.boolean "moderator", default: false, null: false
     t.index ["account_id"], name: "index_users_on_account_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -471,6 +489,7 @@ ActiveRecord::Schema.define(version: 20171010025614) do
   add_foreign_key "follow_requests", "accounts", name: "fk_76d644b0e7", on_delete: :cascade
   add_foreign_key "follows", "accounts", column: "target_account_id", name: "fk_745ca29eac", on_delete: :cascade
   add_foreign_key "follows", "accounts", name: "fk_32ed1b5560", on_delete: :cascade
+  add_foreign_key "glitch_keyword_mutes", "accounts", on_delete: :cascade
   add_foreign_key "imports", "accounts", name: "fk_6db1b6e408", on_delete: :cascade
   add_foreign_key "media_attachments", "accounts", name: "fk_96dd81e81b", on_delete: :nullify
   add_foreign_key "media_attachments", "statuses", on_delete: :nullify

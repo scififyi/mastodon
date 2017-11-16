@@ -1,21 +1,23 @@
+- processed_bio = FrontmatterHandler.instance.process_bio Formatter.instance.simplified_format account
 .card.h-card.p-author{ style: "background-image: url(#{account.header.url(:original)})" }
   .card__illustration
-    - if user_signed_in? && current_account.id != account.id && !current_account.requested?(account)
-      .controls
-        - if current_account.following?(account)
-          = link_to account_unfollow_path(account), data: { method: :post }, class: 'icon-button' do
-            = fa_icon 'user-times'
-            = t('accounts.unfollow')
-        - else
-          = link_to account_follow_path(account), data: { method: :post }, class: 'icon-button' do
-            = fa_icon 'user-plus'
-            = t('accounts.follow')
-    - elsif !user_signed_in?
-      .controls
-        .remote-follow
-          = link_to account_remote_follow_path(account), class: 'icon-button' do
-            = fa_icon 'user-plus'
-            = t('accounts.remote_follow')
+    - unless account.memorial?
+      - if user_signed_in? && current_account.id != account.id && !current_account.requested?(account)
+        .controls
+          - if current_account.following?(account)
+            = link_to account_unfollow_path(account), data: { method: :post }, class: 'icon-button' do
+              = fa_icon 'user-times'
+              = t('accounts.unfollow')
+          - else
+            = link_to account_follow_path(account), data: { method: :post }, class: 'icon-button' do
+              = fa_icon 'user-plus'
+              = t('accounts.follow')
+      - elsif !user_signed_in?
+        .controls
+          .remote-follow
+            = link_to account_remote_follow_path(account), class: 'icon-button' do
+              = fa_icon 'user-plus'
+              = t('accounts.remote_follow')
 
     .avatar= image_tag account.avatar.url(:original), class: 'u-photo'
 
@@ -30,9 +32,14 @@
       .roles
         .account-role
           = t 'accounts.roles.admin'
-
     .bio
-      .account__header__content.p-note.emojify= Formatter.instance.simplified_format(account)
+      .account__header__content.p-note.emojify!=processed_bio[:text]
+      - if processed_bio[:metadata].length > 0
+        %table.metadata<
+          - processed_bio[:metadata].each do |i|
+            %tr.metadata-item><
+              %th.emojify>!=i[0]
+              %td.emojify>!=i[1]
 
     .details-counters
       .counter{ class: active_nav_class(short_account_url(account)) }

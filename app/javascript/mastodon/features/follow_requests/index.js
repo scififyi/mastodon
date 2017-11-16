@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import LoadingIndicator from '../../components/loading_indicator';
-import { ScrollContainer } from 'react-router-scroll';
+import { ScrollContainer } from 'react-router-scroll-4';
 import Column from '../ui/components/column';
 import ColumnBackButtonSlim from '../../components/column_back_button_slim';
 import AccountAuthorizeContainer from './containers/account_authorize_container';
@@ -47,14 +47,14 @@ export default class FollowRequests extends ImmutablePureComponent {
 
     if (!accountIds) {
       return (
-        <Column>
+        <Column name='follow-requests'>
           <LoadingIndicator />
         </Column>
       );
     }
 
     return (
-      <Column icon='users' heading={intl.formatMessage(messages.heading)}>
+      <Column name='follow-requests' icon='users' heading={intl.formatMessage(messages.heading)}>
         <ColumnBackButtonSlim />
 
         <ScrollContainer scrollKey='follow_requests'>
