@@ -1,9 +1,8 @@
 #  (REQUIRED) Name must be unique across all installed themes.
-name: scifi
+name: scifi-autumn
 
 #  (REQUIRED) The location of the pack file inside `pack_directory`.
-pack: default.js
+pack: scifi-autumn.js
 
 #  (OPTIONAL) The directory which contains the pack file.
 #  Defaults to the theme directory (`app/javascript/themes/[theme]`).
-pack_directory: app/javascript/themes/default/

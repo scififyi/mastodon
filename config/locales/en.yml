@@ -617,10 +617,9 @@ en:
       <p>Originally adapted from the <a href="https://github.com/discourse/discourse">Discourse privacy policy</a>.</p>
     title: "%{instance} Terms of Service and Privacy Policy"
   themes:
-    default: "Scifi"
-    scifi-autumn: "Scifi autumn"
-    win95: "Windows 95"
-    mastodon: "Mastodon"
+    default: "scifi"
+    scifi-autumn: "scifi autumn"
+    mastodon: "mastodon"
   time:
     formats:
       default: "%b %d, %Y, %H:%M"
