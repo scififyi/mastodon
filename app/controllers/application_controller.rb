@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_account
   helper_method :current_session
   helper_method :current_theme
+  helper_method :theme_data
   helper_method :single_user_mode?
 
   rescue_from ActionController::RoutingError, with: :not_found
@@ -88,6 +89,10 @@ class ApplicationController < ActionController::Base
     current_user.setting_theme
   end
 
+  def theme_data
+    Themes.instance.get(current_theme)
+  end
+
   def cache_collection(raw, klass)
     return raw unless klass.respond_to?(:with_includes)
 
@@ -104,7 +109,7 @@ class ApplicationController < ActionController::Base
     unless uncached_ids.empty?
       uncached = klass.where(id: uncached_ids).with_includes.map { |item| [item.id, item] }.to_h
 
-      uncached.values.each do |item|
+      uncached.each_value do |item|
         Rails.cache.write(item.cache_key, item)
       end
     end

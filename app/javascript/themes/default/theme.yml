@@ -5,5 +5,17 @@ name: scifi
 pack: default.js
 
 #  (OPTIONAL) The directory which contains the pack file.
-#  Defaults to the theme directory (`app/javascript/themes/[theme]`).
+#  Defaults to the theme directory (`app/javascript/themes/[theme]`),
+#  but in the case of the vanilla Mastodon theme the pack file is
+#  somewhere else.
 pack_directory: app/javascript/themes/default/
+
+#  (OPTIONAL) Additional javascript resources to preload, for use with
+#  lazy-loaded components. It is **STRONGLY RECOMMENDED** that you
+#  derive these pathnames from `themes/[your-theme]` to ensure that
+#  they stay unique. (Of course, vanilla doesn't do this ^^;;)
+# preload:
+#- features/getting_started
+#- features/compose
+#- features/home_timeline
+#- features/notifications
