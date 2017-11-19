@@ -9,6 +9,7 @@ defaults: &defaults
   open_registrations: true
   open_deletion: true
   timeline_preview: false
+  show_staff_badge: true
   default_sensitive: false
   unfollow_modal: true
   closed_registrations_message: 'Closed for now -- check in with @chris@scifi.fyi'
@@ -18,7 +19,7 @@ defaults: &defaults
   reduce_motion: false
   system_font_ui: false
   noindex: false
-  theme: 'default'
+  theme: 'glitch'
   notification_emails:
     follow: false
     reblog: false
