@@ -1,0 +1,409 @@
+@import 'mixins';
+@import 'variables';
+@import 'styles/fonts/roboto';
+@import 'styles/fonts/roboto-mono';
+@import 'styles/fonts/montserrat';
+
+@import 'reset';
+@import 'basics';
+@import 'containers';
+@import 'lists';
+@import 'footer';
+@import 'compact_header';
+@import 'landing_strip';
+@import 'forms';
+@import 'accounts';
+@import 'stream_entries';
+@import 'components';
+@import 'emoji_picker';
+@import 'about';
+@import 'tables';
+@import 'admin';
+@import 'rtl';
+
+
+.column .static-content.getting-started {
+  background-image: url('../../../images/logo-scifi.png');
+  background-color: $ui-primary-color;
+  background-position: 50% 50%;
+  background-size:cover;
+}
+.column .static-content.getting-started p {
+  display: none;
+}
+
+.columns-area {
+  background-color: lighten($ui-primary-color, 15%);
+}
+
+.onboarding-modal__page {
+  p {
+    color: $primary-text-color;
+  }
+}
+
+.column-header {
+  background: $ui-primary-color;
+  color: $white;
+}
+
+.column-header__button {
+  background: $ui-primary-color;
+  color: $white;
+
+  &:hover {
+    color: lighten($ui-primary-color, 50%);
+  }
+
+  &.active {
+    color: $primary-text-color;
+    background: lighten($ui-primary-color, 8%);
+  }
+}
+
+.column-header__back-button {
+  background: $ui-primary-color;
+  color:white;
+}
+
+.column-back-button {
+  background: $ui-primary-color;
+  color:white;
+}
+
+.empty-column-indicator,
+.error-column {
+  color: darken($ui-base-lighter-color, 15%);
+}
+
+.autosuggest-textarea__textarea,
+.spoiler-input__input {
+  color: $primary-text-color;
+  border: 1px solid $ui-secondary-color;
+}
+
+button.icon-button {
+  &.disabled {
+  }
+}
+
+.icon-button {
+  &.inverted {
+    color: darken($ui-base-lighter-color, 10%);
+  }
+
+  &.overlayed {
+    background: rgba($base-overlay-background, 0.2);
+    color: rgba($white, 0.7);
+
+    &:hover {
+      background: rgba($base-overlay-background, 0.4);
+    }
+  }
+
+  &.disabled {
+    color: lighten($ui-base-lighter-color, 10%);
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: lighten($ui-base-lighter-color, 10%);
+    }
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: darken($ui-base-lighter-color, 5%);
+  }
+}
+
+.icon-button.star-icon,
+.icon-button.star-icon:active {
+  background:transparent;
+  border:none;
+}
+
+.icon-button.star-icon.active {
+  color: $gold-star;
+  &:active,  &:hover, &:focus {
+    color: $gold-star;
+  }
+}
+
+.text-icon-button {
+  color: darken($ui-base-lighter-color, 10%);
+  &.active {
+    color: $white;
+  }
+}
+
+.account__header {
+  & > div {
+    background: rgba(lighten($ui-base-color, 4%), 0.6);
+  }
+
+  .account__header__content {
+    color: $primary-text-color;
+  }
+}
+
+.compose-form__buttons {
+  button.text-icon-button {
+    &.active:last-child {
+      color:$white;
+    }
+  }
+}
+
+.privacy-dropdown__option {
+  color: $primary-text-color;
+
+  strong {
+    color: $primary-text-color;
+  }
+
+  &:hover,
+  &.active {
+    color: $white;
+
+    .privacy-dropdown__option__content {
+      color: $white;
+
+      strong {
+        color: $white;
+      }
+    }
+  }
+}
+
+.emoji-dialog {
+  .emoji-search-wrapper {
+    border-color: darken($ui-base-color, 10%);
+  }
+  .emoji-search {
+    background: darken($ui-base-color, 5%);
+    border-color: darken($ui-base-color, 10%);
+  }
+}
+
+.search-popout {
+  background: $ui-base-color;
+  color: $ui-primary-color;
+
+  h4 {
+    color: $ui-primary-color;
+  }
+
+  em {
+    color: $ui-highlight-color;
+  }
+}
+.static-content {
+    /*color: $primary-text-color;*/
+}
+
+.getting-started {
+  p {
+    color: $primary-text-color;
+  }
+
+  a {
+    color: darken($ui-base-lighter-color, 10%);
+  }
+}
+
+.media-spoiler {
+  color: $white;
+}
+
+.status {
+  border-bottom: 1px solid $ui-secondary-color;
+}
+
+.status__content {
+  .status__content__spoiler-link {
+    background: $ui-base-lighter-color;
+
+    &:hover {
+      background: lighten($ui-base-lighter-color, 5%);
+    }
+  }
+}
+.dropdown-menu__item {
+  & > a {
+    color: $primary-text-color;
+    &:hover {
+      color: $ui-base-color;
+    }
+  }
+}
+
+.dropdown--active .dropdown__content {
+  & > ul {
+    background: $ui-base-color;
+    box-shadow: 0 0 5px rgba($base-shadow-color, 0.2);
+    & > li > a {
+      background: $ui-base-color;
+      color: $primary-text-color;
+
+      &:hover {
+        background: $ui-highlight-color;
+        color: $ui-base-color;
+      }
+    }
+  }
+}
+
+.boost-modal,
+.confirmation-modal,
+.report-modal,
+.actions-modal {
+  color: $primary-text-color;
+}
+
+.reply-indicator__content {
+  color: lighten($ui-highlight-color, 30%);
+}
+
+.status__content 
+{
+  a {
+    color: $ui-highlight-color;
+
+    &:hover {
+      .fa {
+        color: darken($ui-base-color, 40%);
+      }
+    }
+  }
+}
+
+.detailed-status__display-name {
+  color: $ui-base-lighter-color;
+}
+
+/* forms.scss */
+.block-button, .button, button {
+  background-color: $ui-primary-color;
+  color: $white;
+
+  &.button-alternative {
+    color: $ui-base-color;
+  }
+}
+
+.simple_form {
+  p.hint {
+    color: $primary-text-color;
+  }
+
+  .block-button, .button, button {
+    background-color: $ui-primary-color;
+    color: $white;
+
+    &:hover {
+      background-color: lighten($ui-primary-color, 5%);
+    }
+
+    &:active,
+    &:focus {
+      background-color: darken($ui-primary-color, 5%);
+    }
+
+  }
+}
+
+/* admin.scss */
+
+.table > thead > tr > th {
+  border-bottom-color:  $ui-secondary-color;
+}
+
+.admin-wrapper {
+  .content {
+    h2, p.hint, h4, h6 {
+      color: $primary-text-color;
+    }
+
+    .muted-hint {
+      color: $primary-text-color;
+    }
+  }
+
+  .sidebar {
+    ul {
+      ul {
+        a {
+          &.selected {
+            background-color: $ui-primary-color;
+            color: $white;
+
+            &:hover {
+              background-color: lighten($ui-primary-color, 10%);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* accounts.scss */
+.card {
+  .name {
+    color: $white;
+  }
+
+  .counter {
+    .counter-number {
+      color: $white;
+    }
+  }
+}
+
+/* stream_entries.scss */
+.activity-stream {
+  .entry {
+  }
+  .status.light {
+    .display-name {
+      strong {
+        color: $primary-text-color;
+      }
+    }
+    .status__content {
+      color: $primary-text-color;
+    }
+  }
+}
+
+.compose-form__buttons button.active:last-child {
+  color:$ui-secondary-color;
+  background-color: $ui-highlight-color;
+  border-radius:3px;
+}
+
+.drawer .drawer__inner {
+  overflow: visible;
+  height:inherit;
+}
+
+.drawer__pager {
+  overflow-y:auto;
+}
+
+.column {
+  max-height:100vh;
+}
+
+.actions .button.button-alternative {
+    background: $ui-highlight-color;
+    color: $white;
+
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: lighten($ui-highlight-color, 4%);
+    }
+}
