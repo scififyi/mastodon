@@ -11,9 +11,8 @@ pack: index.js
 #  lazy-loaded components. It is **STRONGLY RECOMMENDED** that you
 #  derive these pathnames from `themes/[your-theme]` to ensure that
 #  they stay unique. (Of course, vanilla doesn't do this ^^;;)
-
-#preload:
-#- themes/scifi/async/getting_started
-#- themes/scifi/async/compose
-#- themes/scifi/async/home_timeline
-#- themes/scifi/async/notifications
+# preload:
+# - themes/glitch/async/getting_started
+# - themes/glitch/async/compose
+# - themes/glitch/async/home_timeline
+# - themes/glitch/async/notifications

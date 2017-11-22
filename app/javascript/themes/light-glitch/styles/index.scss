@@ -384,18 +384,19 @@ button.icon-button {
   border-radius:3px;
 }
 
-.drawer .drawer__inner {
-  overflow: visible;
-  height:inherit;
-}
-
-.drawer__pager {
-  overflow-y:auto;
-}
-
-.column {
-  max-height:100vh;
-}
+// dosen't work on chrome??
+// .drawer .drawer__inner {
+//   overflow: visible;
+//   height:inherit;
+// }
+// 
+// .drawer__pager {
+//   overflow-y:auto;
+// }
+// 
+// .column {
+//   max-height:100vh;
+// }
 
 .actions .button.button-alternative {
     background: $ui-highlight-color;
