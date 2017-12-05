@@ -1,0 +1,60 @@
+@import 'mixins';
+@import 'variables';
+@import 'styles/fonts/roboto';
+@import 'styles/fonts/roboto-mono';
+@import 'styles/fonts/montserrat';
+
+@import 'reset';
+@import 'basics';
+@import 'containers';
+@import 'lists';
+@import 'footer';
+@import 'compact_header';
+@import 'landing_strip';
+@import 'forms';
+@import 'accounts';
+@import 'stream_entries';
+@import 'components';
+@import 'emoji_picker';
+@import 'about';
+@import 'tables';
+@import 'admin';
+@import 'rtl';
+
+.column .static-content.getting-started {
+  background-image: url('../../../images/logo-scifi.png'), url('../../../images/background-scifi-dark.jpg');
+  background-position: 50% 50%;
+  background-size:cover;
+}
+
+.column .static-content.getting-started p {
+  display: none;
+}
+
+.columns-area {
+  background: $ui-base-color url('../../../images/background-scifi-dark.jpg');
+}
+
+.about-body .mascot {
+  display:none;
+}
+.landing-page .header-wrapper,
+.landing-page .header-wrapper.compact {
+  background-image:url('../../../images/header-scifi.png');
+  background-size:cover;
+  background-position:50% 50%;
+}
+.landing-page .header {
+  .heading {
+    visibility:hidden;
+  }
+  .hero .floats {
+    .float-1, .float-2, .float-3 {
+      visibility:hidden;
+    }
+  }
+}
+.about-body .brand {
+  visibility:hidden;
+}
+
