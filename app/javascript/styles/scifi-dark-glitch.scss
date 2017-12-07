@@ -1,0 +1,89 @@
+// scifi.fyi colors
+
+$color1: #0f0f0f; // darkest
+$color2: #e0e0e0; // lightest
+$color3: #95A5A6; // lighter
+$color4: #0948A5; // vibrant
+$color5: #f0f0f0; // white
+$color6: #E74C3C; // error red
+$color7: #2ECC71; // succ green
+$color8: #021335; // black
+
+$classic-base-color: $color1;
+$classic-secondary-color: $color2;
+$classic-primary-color: $color3;
+$classic-highlight-color: $color4;
+$base-border-color: $color5;
+$simple-background-color: $color5;
+$primary-text-color: $color5;
+$error-value-color: $color6;
+$valid-value-color: $color7;
+$base-shadow-color: $color8;
+$base-overlay-background: $color8;
+
+// Commonly used web colors
+$black: #021335;            // Black
+$white: #f0f0f0;            // White
+$success-green: #79bd9a;    // Padua
+$error-red: #df405a;        // Cerise
+$warning-red: #ff5050;      // Sunset Orange
+$gold-star: #ca8f04;        // Dark Goldenrod
+
+// Variables for defaults in UI
+$base-shadow-color: $black !default;
+$base-overlay-background: $black !default;
+$base-border-color: $white !default;
+$simple-background-color: $white !default;
+$primary-text-color: $white !default;
+$valid-value-color: $success-green !default;
+$error-value-color: $error-red !default;
+
+// Tell UI to use selected colors
+$ui-base-color: $classic-base-color !default;                  // Darkest
+$ui-base-lighter-color: lighten($ui-base-color, 26%) !default; // Lighter darkest
+$ui-primary-color: $classic-primary-color !default;            // Lighter
+$ui-secondary-color: $classic-secondary-color !default;        // Lightest
+$ui-highlight-color: $classic-highlight-color !default;        // Vibrant
+
+// Avatar border size (8% default, 100% for rounded avatars)
+$ui-avatar-border-size: 8%;
+
+@import 'flavours/glitch/styles/index.scss';
+
+.column .static-content.getting-started {
+  background-image: url('../../images/logo-scifi.png'), url('../../images/background-scifi-dark.jpg');
+  background-position: 50% 50%;
+  background-size:cover;
+}
+
+.column .static-content.getting-started p {
+  display: none;
+}
+
+.columns-area {
+  background: $ui-base-color url('../../images/background-scifi-dark.jpg');
+}
+
+.about-body .mascot {
+  display:none;
+}
+.landing-page .header-wrapper,
+.landing-page .header-wrapper.compact {
+  background-image:url('../../images/header-scifi.png');
+  background-size:cover;
+  background-position:50% 50%;
+}
+.landing-page .header {
+  .heading {
+    visibility:hidden;
+  }
+  .hero .floats {
+    .float-1, .float-2, .float-3 {
+      visibility:hidden;
+    }
+  }
+}
+.about-body .brand {
+  visibility:hidden;
+}
+

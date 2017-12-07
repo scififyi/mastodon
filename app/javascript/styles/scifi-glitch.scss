@@ -21,7 +21,7 @@ $valid-value-color: $color7;
 $base-shadow-color: $color8;
 $base-overlay-background: $color8;
 
-@import 'application';
+@import 'flavours/glitch/styles/index.scss';
 
 .column .static-content.getting-started {
   background-image: url('../../images/logo-scifi.png'), url('../../images/background-scifi-blur.png');

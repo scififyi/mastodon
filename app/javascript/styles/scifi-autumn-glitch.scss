@@ -1,0 +1,127 @@
+// scifi.fyi autumn colors
+// https://scififyi.s3-us-east-2.amazonaws.com/media_attachments/files/000/054/319/original/5f1cac46d77f95ee.png
+
+$color1: #661e2b; // darkest
+$color2: #9B9740; // lightest
+$color3: #EBCDD5; // lighter
+$color4: #C26225; // vibrant, warm orange
+$color5: #d9d7c3; // white
+$color6: #E74C3C; // error red
+$color7: #2ECC71; // succ green
+$color8: #021335; // black
+$color9: #5B2C36; // deep red
+$color10: #233B5D; // cozy blue
+
+$ui-base-color: $color1;
+$ui-secondary-color: $color2;
+$ui-primary-color: $color3;
+$ui-highlight-color: $color4;
+$base-border-color: $color5;
+$simple-background-color: $color5;
+$primary-text-color: $color5;
+$error-value-color: $color6;
+$valid-value-color: $color7;
+$base-shadow-color: $color8;
+$base-overlay-background: $color8;
+
+@import 'flavours/glitch/styles/index.scss';
+
+// headers of getting started, notifications, and home
+.column-header {
+  background: $color4;
+  color: $color5;
+}
+.column-back-button {
+  background: $color4;
+  color: $color5;
+}
+.column-header__button {
+  background: $color4;
+  color: $color5;
+}
+.column-header__button.active, .column-header__button.active:hover{
+  background: $color4;
+  color: $color5;
+}
+.column-header__back-button {
+  background: $color4;
+  color: $color5;
+}
+.column-header__collapsible {
+  border-left:2px outset $color4;
+  border-right:2px outset $color4;
+}
+
+// leftmost column with compose box
+.drawer__inner {
+  background-color: $color2;
+}
+
+// background color behind columns
+.columns-area {
+  background: $color10;
+}
+
+// background of search modal
+.search-popout {
+  background-color: $color2;
+}
+
+// use own image in getting started
+.column .static-content.getting-started {
+  background-image: url('../../images/logo-scifi.png');
+  background-position: 50% 50%;
+  background-size:cover;
+  background-color: $color9;
+}
+// hide overlay text over image in getting started
+.column .static-content.getting-started p {
+  display: none;
+}
+
+// ---------------
+// responsive columns
+
+@media screen and (min-width: 1300px) {
+  .column {
+    flex-grow: 1 !important;
+    max-width: 400px;
+}
+  .drawer {
+    width: 15%;
+    max-width: 400px;
+    min-width: 320px;
+  }
+}
+
+// ---------------
+// about and about/more pages
+
+// hide our fluffy elephant friend
+.about-body .mascot {
+  display:none;
+}
+// use our own mascot
+.landing-page .header-wrapper,
+.landing-page .header-wrapper.compact {
+    background-image:url('../../images/header-scifi.png');
+    background-size:cover;
+    background-position:50% 50%;
+}
+
+// hide cloud .pngs behind signup box
+.landing-page .header {
+    .heading {
+        visibility:hidden;
+    }
+    .hero .floats {
+        .float-1, .float-2, .float-3 {
+	    opacity:0.0;
+	}
+    }
+}
+
+// hide "mastodon hosted on scifi.fyi" text next to signup box
+.about-body .brand {
+    visibility:hidden;
+}
