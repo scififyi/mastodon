@@ -1,6 +1,0 @@
-[submodule "app/javascript/themes/mastodon-go"]
-	path = app/javascript/themes/mastodon-go
-	url = https://github.com/marrus-sh/mastodon-go
-[submodule "app/javascript/themes/app/javascript/themes/mastodon-go"]
-	path = app/javascript/themes/app/javascript/themes/mastodon-go
-	url = https://github.com/marrus-sh/mastodon-go
