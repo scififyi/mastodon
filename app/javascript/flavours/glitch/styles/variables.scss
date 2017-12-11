@@ -1,30 +1,16 @@
 // Commonly used web colors
-$black: #021335;            // Black
-$white: #f0f0f0;            // White
-$success-green: #2ECC71;    // Padua
+$black: #000000;            // Black
+$white: #ffffff;            // White
+$success-green: #79bd9a;    // Padua
 $error-red: #df405a;        // Cerise
-$warning-red: #E74C3C;      // Sunset Orange
-$gold-star: #eeae00;        // Dark Goldenrod
+$warning-red: #ff5050;      // Sunset Orange
+$gold-star: #ca8f04;        // Dark Goldenrod
 
-// scifi.fyi colors
-$classic-base-color: #05285c;         // Midnight Express
-$classic-primary-color: #95A5A6;      // Echo Blue
-$classic-secondary-color:  #e0e0e0;    // Pattens Blue
-$classic-highlight-color: #eeae00;    // Summer Sky
-
-// Commonly used web colors
-// $black: #000000;            // Black
-// $white: #ffffff;            // White
-// $success-green: #79bd9a;    // Padua
-// $error-red: #df405a;        // Cerise
-// $warning-red: #ff5050;      // Sunset Orange
-// $gold-star: #ca8f04;        // Dark Goldenrod
-// 
-// // Values from the classic Mastodon UI
-// $classic-base-color: #282c37;         // Midnight Express
-// $classic-primary-color: #9baec8;      // Echo Blue
-// $classic-secondary-color: #d9e1e8;    // Pattens Blue
-// $classic-highlight-color: #2b90d9;    // Summer Sky
+// Values from the classic Mastodon UI
+$classic-base-color: #282c37;         // Midnight Express
+$classic-primary-color: #9baec8;      // Echo Blue
+$classic-secondary-color: #d9e1e8;    // Pattens Blue
+$classic-highlight-color: #2b90d9;    // Summer Sky
 
 // Variables for defaults in UI
 $base-shadow-color: $black !default;
