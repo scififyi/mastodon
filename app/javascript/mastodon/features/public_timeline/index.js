@@ -81,7 +81,7 @@ export default class PublicTimeline extends React.PureComponent {
     return (
       <Column ref={this.setRef}>
         <ColumnHeader
-          icon='rocket'
+          icon='globe'
           active={hasUnread}
           title={intl.formatMessage(messages.title)}
           onPin={this.handlePin}

@@ -51,7 +51,7 @@ $ui-avatar-border-size: 8%;
 @import 'flavours/glitch/styles/index.scss';
 
 .column .static-content.getting-started {
-  background-image: url('../../images/logo-scifi.png'), url('../../images/background-scifi-dark.jpg');
+  background-image: url('../../../images/logo-scifi.png'), url('../../../images/background-scifi-dark.jpg');
   background-position: 50% 50%;
   background-size:cover;
 }
@@ -61,7 +61,7 @@ $ui-avatar-border-size: 8%;
 }
 
 .columns-area {
-  background: $ui-base-color url('../../images/background-scifi-dark.jpg');
+  background: $ui-base-color url('../../../images/background-scifi-dark.jpg');
 }
 
 .about-body .mascot {
@@ -69,7 +69,7 @@ $ui-avatar-border-size: 8%;
 }
 .landing-page .header-wrapper,
 .landing-page .header-wrapper.compact {
-  background-image:url('../../images/header-scifi.png');
+  background-image:url('../../../images/header-scifi.png');
   background-size:cover;
   background-position:50% 50%;
 }

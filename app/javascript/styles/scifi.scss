@@ -24,7 +24,7 @@ $base-overlay-background: $color8;
 @import 'application';
 
 .column .static-content.getting-started {
-  background-image: url('../../images/logo-scifi.png'), url('../../images/background-scifi-blur.png');
+  background-image: url('../../../images/logo-scifi.png'), url('../../../images/background-scifi-blur.png');
   background-position: 50% 50%;
   background-size:cover;
 }
@@ -34,7 +34,7 @@ $base-overlay-background: $color8;
 }
 
 .columns-area {
-  background: $ui-base-color url('../../images/background-scifi-blur.png');
+  background: $ui-base-color url('../../../images/background-scifi-blur.png');
 }
 
 .about-body .mascot {
@@ -42,7 +42,7 @@ $base-overlay-background: $color8;
 }
 .landing-page .header-wrapper,
 .landing-page .header-wrapper.compact {
-    background-image:url('../../images/header-scifi.png');
+    background-image:url('../../../images/header-scifi.png');
     background-size:cover;
     background-position:50% 50%;
 }

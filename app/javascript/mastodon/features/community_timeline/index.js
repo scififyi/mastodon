@@ -81,7 +81,7 @@ export default class CommunityTimeline extends React.PureComponent {
     return (
       <Column ref={this.setRef}>
         <ColumnHeader
-          icon='globe'
+          icon='users'
           active={hasUnread}
           title={intl.formatMessage(messages.title)}
           onPin={this.handlePin}

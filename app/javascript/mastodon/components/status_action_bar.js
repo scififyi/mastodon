@@ -122,7 +122,7 @@ export default class StatusActionBar extends ImmutablePureComponent {
     const publicStatus       = ['public', 'unlisted'].includes(status.get('visibility'));
 
     let menu = [];
-    let reblogIcon = 'space-shuttle';
+    let reblogIcon = 'retweet';
     let replyIcon;
     let replyTitle;
 
