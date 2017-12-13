@@ -21,4 +21,3 @@ loadPolyfills().then(main).catch(error => {
   console.error(error);
 });
 
-require('what-input');

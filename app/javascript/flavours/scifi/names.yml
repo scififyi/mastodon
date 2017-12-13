@@ -1,0 +1,8 @@
+en:
+  flavours:
+    scifi:
+      description: An scifi flavoured version of Glitch-soc for extra experimental developments
+      name: Scifi experiments
+  skins:
+    scifi:
+      default: Default
