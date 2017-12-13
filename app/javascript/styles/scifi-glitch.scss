@@ -23,6 +23,21 @@ $base-overlay-background: $color8;
 
 @import 'flavours/glitch/styles/index.scss';
 
+[data-whatinput="mouse"], [data-whatinput="touch"] {
+  .status__content:focus, .status:focus,
+  .status__wrapper:focus, .status__content__text:focus {
+    outline: none;
+  }
+}
+
+.status__collapse-button {
+  &.active {
+    color: $primary-text-color;
+    background-color: $ui-highlight-color;
+    border-radius: 4px;
+  }
+}
+
 .column .static-content.getting-started {
   background-image: url('../../../images/logo-scifi.png'), url('../../../images/background-scifi-blur.png');
   background-position: 50% 50%;
