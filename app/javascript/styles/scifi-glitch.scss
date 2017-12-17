@@ -23,6 +23,13 @@ $base-overlay-background: $color8;
 
 @import 'flavours/glitch/styles/index.scss';
 
+[data-whatinput="mouse"], [data-whatinput="touch"] {
+  .status__content:focus, .status:focus,
+  .status__wrapper:focus, .status__content__text:focus {
+    outline: none;
+  }
+}
+
 .status__collapse-button {
   &.active {
     color: $primary-text-color;

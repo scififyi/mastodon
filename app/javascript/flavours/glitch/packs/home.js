@@ -6,3 +6,4 @@ loadPolyfills().then(() => {
   console.error(e);
 });
 
+require('what-input');
