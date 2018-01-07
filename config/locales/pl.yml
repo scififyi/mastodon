@@ -160,6 +160,7 @@ pl:
         update_status: "%{name} zaktualizował wpis użytkownika %{target}"
       title: Dziennik działań administracyjnych
     custom_emojis:
+      by_domain: Według domeny
       copied_msg: Pomyślnie utworzono lokalną kopię emoji
       copy: Kopiuj
       copy_failed_msg: Nie udało się utworzyć lokalnej kopii emoji
@@ -603,8 +604,10 @@ pl:
     development: Tworzenie aplikacji
     edit_profile: Edytuj profil
     export: Eksportowanie danych
+    flavours: Motywy
     followers: Autoryzowani śledzący
     import: Importowanie danych
+    keyword_mutes: Wyciszone słowa
     migrate: Migracja konta
     notifications: Powiadomienia
     preferences: Preferencje
@@ -620,6 +623,7 @@ pl:
       private: Nie możesz przypiąć niepublicznego wpisu
       reblog: Nie możesz przypiąć podbicia wpisu
     show_more: Pokaż więcej
+    title: '%{name}: "%{quote}"'
     visibilities:
       private: Tylko dla śledzących
       private_long: Widoczne tylko dla osób, które Cię śledzą
