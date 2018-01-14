@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   private
 
   def https_enabled?
-    Rails.env.production? && ENV['LOCAL_HTTPS'] == 'true'
+    Rails.env.production?
   end
 
   def store_current_location
@@ -192,6 +192,7 @@ class ApplicationController < ActionController::Base
       format.any  { head code }
       format.html do
         set_locale
+        use_pack 'error'
         render "errors/#{code}", layout: 'error', status: code
       end
     end

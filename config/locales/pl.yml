@@ -116,6 +116,7 @@ pl:
       roles:
         admin: Administrator
         moderator: Moderator
+        staff: Ekipa
         user: Użytkownik
       salmon_url: Adres Salmon
       search: Szukaj
@@ -160,7 +161,7 @@ pl:
         update_status: "%{name} zaktualizował wpis użytkownika %{target}"
       title: Dziennik działań administracyjnych
     custom_emojis:
-      by_domain: Według domeny
+      by_domain: Domeny
       copied_msg: Pomyślnie utworzono lokalną kopię emoji
       copy: Kopiuj
       copy_failed_msg: Nie udało się utworzyć lokalnej kopii emoji
@@ -351,7 +352,7 @@ pl:
     warning: Przechowuj te dane ostrożnie. Nie udostępniaj ich nikomu!
     your_token: Twój token dostępu
   auth:
-    agreement_html: Rejestrując się, oświadczasz, że zapoznałeś się z <a href="%{rules_path}">naszymi zasadami użytkowania</a> i <a href="%{terms_path}">polityką prywatności</a>.
+    agreement_html: Rejestrując się, oświadczasz, że zapoznałeś się z <a href="%{rules_path}">informacjami o instancji</a> i <a href="%{terms_path}">zasadami korzystania z usługi</a>.
     change_password: Bezpieczeństwo
     delete_account: Usunięcie konta
     delete_account_html: Jeżeli chcesz usunąć konto, <a href="%{path}">przejdź tutaj</a>. Otrzymasz prośbę o potwierdzenie.
@@ -432,6 +433,7 @@ pl:
     changes_saved_msg: Ustawienia zapisane!
     powered_by: uruchomione na %{link}
     save_changes: Zapisz zmiany
+    use_this: Użyj tego
     validation_errors:
       one: Coś jest wciąż nie tak! Przyjrzyj się błędowi poniżej
       other: Coś jest wciąż nie tak! Przejrzyj błędy (%{count}) poniżej
@@ -604,7 +606,7 @@ pl:
     development: Tworzenie aplikacji
     edit_profile: Edytuj profil
     export: Eksportowanie danych
-    flavours: Motywy
+    flavours: Odmiany
     followers: Autoryzowani śledzący
     import: Importowanie danych
     keyword_mutes: Wyciszone słowa
