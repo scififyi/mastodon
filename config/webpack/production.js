@@ -34,7 +34,7 @@ module.exports = merge(sharedConfig, {
       mangle: true,
 
       compress: {
-        warnings: false,
+        warnings: true,
       },
 
       output: {

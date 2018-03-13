@@ -23,6 +23,37 @@ $base-overlay-background: $color8;
 
 @import 'flavours/glitch/styles/index.scss';
 
+//
+.notification__message > span {
+    white-space: nowrap;
+}
+
+[data-column="notifications"] .status {
+    min-height: 0;
+}
+
+[data-column="notifications"] .status > .notification__message {
+    margin: 0 0 0 32px;
+    padding: 4px 0 4px 26px;
+}
+
+[data-column="notifications"] .status[data-favourited-by] > .status__info,
+[data-column="notifications"] .status[data-favourited-by] > .status__action-bar,
+[data-column="notifications"] .status[data-boosted-by] > .status__info,
+[data-column="notifications"] .status[data-boosted-by] > .status__action-bar {
+    display: none;
+}
+
+[data-column="notifications"] .status[data-favourited-by] > .status__content,
+[data-column="notifications"] .status[data-boosted-by] > .status__content {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
 .status__collapse-button {
   &.active {
     color: $primary-text-color;
@@ -30,12 +61,28 @@ $base-overlay-background: $color8;
     border-radius: 4px;
   }
 }
+//
 
-.column .static-content.getting-started {
-  background-image: url('../../../images/logo-scifi.png'), url('../../../images/background-scifi-blur.png');
-  background-position: 50% 50%;
-  background-size:cover;
+.drawer {
+  @for $i from 0 through 3 {
+    &.mbstobon-#{$i} > .contents {
+      background-image: none;
+      filter: none;
+      & > .mastodon {
+        background: url('../../../images/logo-scifi.png') no-repeat left bottom / contain;
+	filter: none;
+      }
+    }
+  }
 }
+
+//
+//.column .static-content.getting-started {
+//  background-image: url('../../../images/logo-scifi.png'), url('../../../images/background-scifi-blur.png');
+//  background-position: 50% 50%;
+//  background-size:cover;
+//}
+//
 
 .column .static-content.getting-started p {
   display: none;

@@ -1,3 +1,24 @@
+$color1: #05285c; // darkest
+$color2: #e0e0e0; // lightest
+$color3: #95A5A6; // lighter
+$color4: #eeae00; // vibrant
+$color5: #f0f0f0; // white
+$color6: #E74C3C; // error red
+$color7: #2ECC71; // succ green
+$color8: #021335; // black
+
+$ui-base-color: $color1;
+$ui-secondary-color: $color2;
+$ui-primary-color: $color3;
+$ui-highlight-color: $color4;
+$base-border-color: $color5;
+$simple-background-color: $color5;
+$primary-text-color: $color5;
+$error-value-color: $color6;
+$valid-value-color: $color7;
+$base-shadow-color: $color8;
+$base-overlay-background: $color8;
+
 $maximum-width: 1235px;
 $fluid-breakpoint: $maximum-width + 20px;
 $column-breakpoint: 700px;
